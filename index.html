@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Switcher · Vibe Shift</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="theme-ocean">
+    <div class="app-container">
+        <header>
+            <h1>🎨 Vibe Shift</h1>
+            <p class="subtitle">Change your mood, change your theme</p>
+        </header>
+
+        <main>
+            <div class="theme-switcher-wrapper">
+                <button id="theme-switcher-button" class="theme-btn" aria-haspopup="true" aria-expanded="false"
+                    aria-controls="theme-dropdown">
+                    <span class="btn-text">Switch Theme</span>
+                    <span class="btn-arrow">▼</span>
+                </button>
+
+                <ul id="theme-dropdown" class="theme-menu" role="menu" aria-labelledby="theme-switcher-button" hidden>
+                    <li role="menuitem" id="theme-ocean" tabindex="-1">🌊 Ocean Deep</li>
+                    <li role="menuitem" id="theme-forest" tabindex="-1">🌲 Forest Whisper</li>
+                    <li role="menuitem" id="theme-sunset" tabindex="-1">🌅 Sunset Glow</li>
+                    <li role="menuitem" id="theme-midnight" tabindex="-1">🌙 Midnight Jazz</li>
+                </ul>
+            </div>
+
+            <div class="message-panel">
+                <div class="message-label">current vibe</div>
+                <div class="message-content" id="theme-message" aria-live="polite">
+                    🌊 Deep ocean vibes with calming blue waves
+                </div>
+            </div>
+
+            <div class="preview-area">
+                <h3>theme preview</h3>
+                <div class="color-dots">
+                    <div class="dot primary"></div>
+                    <div class="dot secondary"></div>
+                    <div class="dot accent"></div>
+                </div>
+                <p class="sample-text">This is how your theme looks in action</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>select a theme to transform your experience</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
