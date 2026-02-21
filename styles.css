@@ -1,0 +1,335 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+    transition: background-color 0.4s ease, color 0.3s ease;
+    line-height: 1.6;
+}
+
+.app-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 300;
+    letter-spacing: -0.5px;
+    margin-bottom: 0.25rem;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    font-style: italic;
+}
+
+body.theme-ocean {
+    background: linear-gradient(145deg, #0a4b6e 0%, #1e6f9f 50%, #3b9bd7 100%);
+    color: #f0faff;
+}
+
+body.theme-ocean .message-panel {
+    background: rgba(144, 202, 249, 0.15);
+    border-left: 5px solid #6ec3e6;
+    box-shadow: 0 10px 30px rgba(0, 40, 70, 0.3);
+}
+
+body.theme-ocean .theme-btn {
+    background: #1e6f9f;
+    border-color: #9ad0f5;
+    color: white;
+    box-shadow: 0 8px 20px rgba(0, 80, 130, 0.4);
+}
+
+body.theme-ocean .theme-btn:hover {
+    background: #2580b5;
+}
+
+body.theme-ocean .dot.primary {
+    background: #0a4b6e;
+}
+
+body.theme-ocean .dot.secondary {
+    background: #1e6f9f;
+}
+
+body.theme-ocean .dot.accent {
+    background: #3b9bd7;
+}
+
+/* Theme: Forest */
+body.theme-forest {
+    background: linear-gradient(145deg, #1b4d1b 0%, #2d6a2d 50%, #4f8a4f 100%);
+    color: #edf7ed;
+}
+
+body.theme-forest .message-panel {
+    background: rgba(130, 180, 100, 0.2);
+    border-left: 5px solid #8bc34a;
+}
+
+body.theme-forest .theme-btn {
+    background: #2d6a2d;
+    border-color: #a5d6a5;
+    color: white;
+    box-shadow: 0 8px 20px rgba(30, 70, 30, 0.5);
+}
+
+body.theme-forest .theme-btn:hover {
+    background: #368036;
+}
+
+body.theme-forest .dot.primary {
+    background: #1b4d1b;
+}
+
+body.theme-forest .dot.secondary {
+    background: #2d6a2d;
+}
+
+body.theme-forest .dot.accent {
+    background: #4f8a4f;
+}
+
+body.theme-sunset {
+    background: linear-gradient(145deg, #b8452e 0%, #d85f3a 50%, #f78b4b 100%);
+    color: #fff3e6;
+}
+
+body.theme-sunset .message-panel {
+    background: rgba(255, 160, 100, 0.2);
+    border-left: 5px solid #ffb26b;
+}
+
+body.theme-sunset .theme-btn {
+    background: #d85f3a;
+    border-color: #ffb08a;
+    color: white;
+    box-shadow: 0 8px 20px rgba(150, 60, 30, 0.4);
+}
+
+body.theme-sunset .theme-btn:hover {
+    background: #e66e48;
+}
+
+body.theme-sunset .dot.primary {
+    background: #b8452e;
+}
+
+body.theme-sunset .dot.secondary {
+    background: #d85f3a;
+}
+
+body.theme-sunset .dot.accent {
+    background: #f78b4b;
+}
+
+body.theme-midnight {
+    background: linear-gradient(145deg, #191e3b 0%, #2a3155 50%, #3e4770 100%);
+    color: #e0e5ff;
+}
+
+body.theme-midnight .message-panel {
+    background: rgba(100, 120, 200, 0.15);
+    border-left: 5px solid #7f92e0;
+}
+
+body.theme-midnight .theme-btn {
+    background: #2a3155;
+    border-color: #959fd0;
+    color: white;
+    box-shadow: 0 8px 20px rgba(20, 25, 50, 0.6);
+}
+
+body.theme-midnight .theme-btn:hover {
+    background: #333d68;
+}
+
+body.theme-midnight .dot.primary {
+    background: #191e3b;
+}
+
+body.theme-midnight .dot.secondary {
+    background: #2a3155;
+}
+
+body.theme-midnight .dot.accent {
+    background: #3e4770;
+}
+
+.theme-switcher-wrapper {
+    position: relative;
+    width: 100%;
+    margin: 2.5rem 0 2rem;
+}
+
+.theme-btn {
+    width: 100%;
+    padding: 1.2rem 2rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+    border: 2px solid;
+    border-radius: 60px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.25s ease;
+    backdrop-filter: blur(5px);
+}
+
+.theme-btn:hover {
+    transform: translateY(-3px);
+}
+
+.theme-btn:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 3px;
+}
+
+.btn-arrow {
+    font-size: 1.1rem;
+    transition: transform 0.3s;
+}
+
+.theme-btn[aria-expanded="true"] .btn-arrow {
+    transform: rotate(180deg);
+}
+
+.theme-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    border-radius: 30px;
+    padding: 0.8rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    list-style: none;
+    z-index: 100;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.theme-menu[hidden] {
+    display: none;
+}
+
+.theme-menu li {
+    padding: 1rem 1.8rem;
+    margin: 0.2rem 0;
+    border-radius: 40px;
+    cursor: pointer;
+    color: #1a1e2c;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.theme-menu li:hover {
+    background: rgba(0, 0, 0, 0.08);
+    transform: translateX(8px);
+}
+
+.theme-menu li:focus-visible {
+    outline: 2px solid #4a7db5;
+    background: rgba(74, 125, 181, 0.15);
+}
+
+.message-panel {
+    border-radius: 40px;
+    padding: 2rem;
+    margin: 2rem 0 2.5rem;
+    text-align: center;
+    transition: all 0.3s;
+    backdrop-filter: blur(8px);
+}
+
+.message-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    opacity: 0.7;
+    margin-bottom: 0.8rem;
+}
+
+.message-content {
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1.4;
+    min-height: 5rem;
+}
+
+.preview-area {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    border-radius: 40px;
+    padding: 2rem;
+}
+
+.preview-area h3 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+}
+
+.color-dots {
+    display: flex;
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.dot {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    transition: background-color 0.3s;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.sample-text {
+    font-size: 1rem;
+    opacity: 0.8;
+    font-style: italic;
+}
+
+footer {
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.6;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 600px) {
+    .app-container {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .theme-btn {
+        padding: 1rem 1.5rem;
+        font-size: 1.2rem;
+    }
+
+    .message-content {
+        font-size: 1.5rem;
+    }
+
+    .dot {
+        width: 45px;
+        height: 45px;
+    }
+}
